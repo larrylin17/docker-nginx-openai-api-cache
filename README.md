@@ -44,7 +44,10 @@ git clone https://github.com/larrylin17/docker-nginx-openai-api-cache.git
 cd docker-nginx-openai-api-cache
 ```
 
-2. 
+2. Generate SSL certificate and key
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout conf/ssl/nginx-selfsigned.key -out conf/ssl/nginx-selfsigned.crt
+```
 
 2. Start the container:
 
