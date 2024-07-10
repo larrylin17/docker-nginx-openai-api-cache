@@ -46,6 +46,9 @@ cd docker-nginx-openai-api-cache
 
 2. Generate SSL certificate and key
 ```
+mkdir conf/ssl
+```
+```
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout conf/ssl/nginx-selfsigned.key -out conf/ssl/nginx-selfsigned.crt
 ```
 
@@ -55,11 +58,10 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout conf/ssl/nginx-
 docker-compose up -d
 ```
 
-
 or
 
 ```
-docker run -d -p 81:80 -v ./nginx.conf:/etc/nginx/nginx.conf:ro -v ./server_cache:/server_cache:rw --name nginx-openai-api --restart always larrylin77/nginx-openai
+docker run -d -p 80:80 -p 443:443 -v ./conf:/etc/nginx -v ./server_cache:/server_cache:rw --name nginx-openai-api --restart always nginx:latest
 ```
 
 
