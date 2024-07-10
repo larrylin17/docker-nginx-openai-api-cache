@@ -40,15 +40,25 @@ nginx here is preconfigured to work on OpenAI API.
 1. Clone the repository:
 
 ```
-git clone https://github.com/gpt4thewin/docker-nginx-openai-api-cache.git
+git clone https://github.com/larrylin17/docker-nginx-openai-api-cache.git
 cd docker-nginx-openai-api-cache
 ```
+
+2. 
 
 2. Start the container:
 
 ```
 docker-compose up -d
 ```
+
+
+or
+
+```
+docker run -d -p 81:80 -v ./nginx.conf:/etc/nginx/nginx.conf:ro -v ./server_cache:/server_cache:rw --name nginx-openai-api --restart always larrylin77/nginx-openai
+```
+
 
 3. Test the server
 
